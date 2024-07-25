@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loading.…</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column; /* Added */
+      justify-content: flex-start; /* Added */
+      align-items: center;
+      min-height: 100vh; /* Changed to min-height */
+      background-color: #f1f1f1;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #333;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: calc(100vh - 36px); /* Added */
+      margin-top: 0; /* Added */
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var isCompatible = true;
+      var supportedBrowsers = ["Firefox", "Chrome", "Edge", "Safari", "Opera", "Brave", "Vivaldi", "DuckDuckGo"];
+      var currentBrowser = navigator.userAgent;
+
+      if (supportedBrowsers.every(function(browser) {
+        return currentBrowser.indexOf(browser) === -1;
+      })) {
+        isCompatible = false;
+      }
+
+      if (isCompatible) {
+        window.location.href = 'attapoll.app/join/lotun'; // Replace with your compatible link
+      } else {
+        var catImage = document.createElement('img');
+        catImage.src = 'https://storage.cloudconvert.com/tasks/bd4fa29e-e63a-4c3a-878b-82744172f36e/3B7B52A1-F754-4743-9C5D-3408F6A30CA8.jpg?AWSAccessKeyId=cloudconvert-production&Expires=1687661956&Signature=O4gwI7QhZydUDK%2FDA%2FK1tcwe%2FtQ%3D&response-content-disposition=attachment%3B%20filename%3D%223B7B52A1-F754-4743-9C5D-3408F6A30CA8.jpg%22&response-content-type=image%2Fjpeg'; // Replace with your cat image URL or path
+        document.body.appendChild(catImage);
+      }
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>
