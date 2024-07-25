@@ -1,53 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Loading.…</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column; /* Added */
-      justify-content: flex-start; /* Added */
-      align-items: center;
-      min-height: 100vh; /* Changed to min-height */
-      background-color: #f1f1f1;
-    }
-
-    h1 {
-      font-size: 36px;
-      color: #333;
-      text-align: center;
-    }
-
-    img {
-      max-width: 100%;
-      max-height: calc(100vh - 36px); /* Added */
-      margin-top: 0; /* Added */
-    }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var isCompatible = true;
-      var supportedBrowsers = ["Firefox", "Chrome", "Edge", "Safari", "Opera", "Brave", "Vivaldi", "DuckDuckGo"];
-      var currentBrowser = navigator.userAgent;
-
-      if (supportedBrowsers.every(function(browser) {
-        return currentBrowser.indexOf(browser) === -1;
-      })) {
-        isCompatible = false;
-      }
-
-      if (isCompatible) {
-        window.location.href = 'attapoll.app/join/lotun'; // Replace with your compatible link
-      } else {
-        var catImage = document.createElement('img');
-        catImage.src = 'https://i.ibb.co/Lt8cFLQ/D6-D5-B973-32-BB-4-EF2-9805-4-C1-B5-D2881-D2-1.png'; // Replace with your cat image URL or path
-        document.body.appendChild(catImage);
-      }
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Detection</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .image {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <img src="https://i.ibb.co/Lt8cFLQ/D6-D5-B973-32-BB-4-EF2-9805-4-C1-B5-D2881-D2-1.png" alt="Your Image" class="image">
+    <script>
+        const browsersToRedirect = ["Firefox", "Chrome", "Edge", "Safari", "Opera", "Brave", "Vivaldi", "DuckDuckGo"];
+
+        function getBrowserName() {
+            const userAgent = navigator.userAgent;
+            if (userAgent.includes("Firefox")) return "Firefox";
+            if (userAgent.includes("Edg")) return "Edge";
+            if (userAgent.includes("OPR") || userAgent.includes("Opera")) return "Opera";
+            if (userAgent.includes("Vivaldi")) return "Vivaldi";
+            if (userAgent.includes("DuckDuckGo")) return "DuckDuckGo";
+            if (userAgent.includes("Brave")) return "Brave";
+            if (userAgent.includes("Chrome") && !userAgent.includes("Edg") && !userAgent.includes("OPR") && !userAgent.includes("Vivaldi") && !userAgent.includes("DuckDuckGo")) return "Chrome";
+            if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) return "Safari";
+            return "Other";
+        }
+
+        const browserName = getBrowserName();
+        if (browsersToRedirect.includes(browserName)) {
+            window.location.href = "https://www.attapoll.app/join/lotun";
+        } else {
+            document.querySelector('.image').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
